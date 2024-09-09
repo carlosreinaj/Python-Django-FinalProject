@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Usuarios
+{% endblock header %}
+
+{% block main %}
+    <div>
+        <button><a href="{% url 'usuarios:usuario_list' %}">Lista de usuarios</a></button>
+    </div>
+{% endblock main %}
+

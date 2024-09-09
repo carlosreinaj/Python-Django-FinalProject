@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Autos
+{% endblock header %}
+
+{% block main %}
+    <div>
+        <button><a href="{% url 'autos:autoscategorias_list' %}">Categoria de Autos</a></button>
+    </div>
+{% endblock main %}

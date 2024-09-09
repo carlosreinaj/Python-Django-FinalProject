@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Lista de Usuarios
+    Lista de Autos
 {% endblock header %}
 
 {% block main %}    
@@ -10,5 +10,5 @@
             <p>{{ object }}</p>
         {% endfor %}
     </div>
-    <button><a href="{% url 'usuarios:index' %}">Volver</a></button>
+    <button><a href="{% url 'autos:index' %}">Volver</a></button>
 {% endblock main %}
