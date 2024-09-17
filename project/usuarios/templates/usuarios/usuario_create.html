@@ -1,13 +1,17 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Crear nuevo Usuario
+    {% if form.instance.pk %}
+        Actualizando Usuarios
+    {% else %}
+        Creando Usuarios
+    {% endif %}
 {% endblock header %}
 
 {% block main %}    
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <button type="submit">Enviar</button>
     </form>
-    <button type="submit"><a href="#">Enviar</a></button>
 {% endblock main %}

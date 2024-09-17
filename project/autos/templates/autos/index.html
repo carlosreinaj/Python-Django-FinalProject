@@ -1,11 +1,21 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block header %}
-    Autos
+<header class="masthead2">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Max-Autos</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Autos</h2>
+                <a class="btn btn-primary" href="#about">Comprar</a>
+            </div>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}
-    <div>
-        <button><a href="{% url 'autos:autoscategorias_list' %}">Categoria de Autos</a></button>
-    </div>
+        <button><a href="{% url 'autos:autos_list' %}">Lista de Autos</a></button>
+        <button><a href="{% url 'autos:autos_create' %}">Agregar Nuevos Autos</a></button>
 {% endblock main %}

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Detalle de Usuarios
+{% endblock header %}
+
+{% block main %}    
+    <ul>
+        <li>Nombre: {{ object.nombre}}</li>
+        <li>Apellido: {{object.apellido}}</li>
+    </ul>
+        <button><a href="{% url 'usuarios:usuario_list' %}">Volver</a></button>  
+{% endblock main %}

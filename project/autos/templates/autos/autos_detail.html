@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Detalle de Autos
+{% endblock header %}
+
+{% block main %}    
+    <ul>
+        <li>Marca: {{ object.modelo}}</li>
+        <li>Año: {{object.ano}}</li>
+        <li>Color: {{object.color}}</li>
+    </ul>
+        <button><a href="{% url 'autos:autos_list' %}">Volver</a></button>  
+{% endblock main %}

@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# MEDIA_ROOT Sirve para indicar la ruta donde se almacenara los archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL indica la url publica desde donde se podran acceder a los archivos multimedia
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'core',
     'usuarios',
     'autos',
+    'ventas',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +131,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Configuracion de autenticacion:
+LOGIN_URL = reverse_lazy('core:login') #URL DE LA PÁGINA DE INICIO DE SESIÓN
+LOGIN_REDIRECT_URL = reverse_lazy('core:index') #URL A LA QUE REDIRIGE DESPUÉS DEL INICIO DE SESIÓN EXITOSO

@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Eliminar un usuario
+{% endblock header %}
+
+{% block main %}    
+<p>¿Esta seguro que desea eliminar al usuario "{{ object.nombre}} {{ object.apellido }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+    <button><a href="{% url 'usuarios:index' %}">Volver</a></button>
+{% endblock main %}

@@ -1,5 +1,11 @@
 from django.contrib import admin
 
-from .models import AutosCategorias
+from .import models
+#admin.site.register(AutosCategorias)
+#admin.site.register(Auto)
 
-admin.site.register(AutosCategorias)
+@admin.register(models.Auto)
+class AutoAdmin(admin.ModelAdmin):
+    list_display = ("modelo", "estado", "ano", "color", "precio")
+    search_fields = ("modelo", "estado",)
+    ordering = ("modelo",)

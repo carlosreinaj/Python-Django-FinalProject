@@ -25,10 +25,8 @@ class UsuarioForm(forms.ModelForm):
         return apellido
         
         
-    def clean_numero(self):
-        numero = self.cleaned_data.get("numero", "")
-        
-        if not numero.isdigit():
-            raise ValidationError("El número solo puede contener dígitos")
-        
-        return numero
+    def clean_telefono(self):  # Cambiado de 'numero' a 'telefono'
+        telefono = self.cleaned_data.get("telefono", "")
+        if not telefono.isdigit():
+            raise ValidationError("El numero solo puede contener dígitos")
+        return telefono

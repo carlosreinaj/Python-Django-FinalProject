@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Lista de Autos
+{% endblock header %}
+
+{% block main %}    
+    <form action="{% url 'autos:autos_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+    <table>
+        <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object }}</td>
+                    <td><a href="{% url 'autos:autos_detail' object.id %}">Detalles</a></td>
+                    <td><a href="{% url 'autos:autos_update' object.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'autos:autos_confirm_delete' object.id %}">Eliminar</a></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No hay registros</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href="{% url 'autos:index' %}">Volver</a></button>
+{% endblock main %}

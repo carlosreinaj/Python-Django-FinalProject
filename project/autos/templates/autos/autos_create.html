@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    {% if form.instance.pk %}
+        Actualizando Autos
+    {% else %}
+        Creando un Nuevo Auto
+    {% endif %}
+{% endblock header %}
+
+{% block main %}    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock main %}

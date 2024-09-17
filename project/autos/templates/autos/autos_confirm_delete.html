@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Eliminar un usuario_delete
+{% endblock header %}
+
+{% block main %}    
+<p>¿Esta seguro que desea eliminar el auto "{{ object.modelo }} {{ object.ano }} {{ object.color }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+    <button><a href="{% url 'autos:index' %}">Volver</a></button>
+{% endblock main %}
