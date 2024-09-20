@@ -9,3 +9,4 @@
 ### Utilizamos HTML y Bootstrap 5 para darle visualizacion al proyecto.
 ### El proyecto se basa en un consesionario online, una tienda de autos en linea.
 ### Como mejoras futuras podemos mencionar a la mejora de estilos, dividir la aplicacion Autos entre Autos Nuevos y Autos usados y que la aplicacion Ventas tenga protagonismo. Cuando el usuario use el boton comprar de 'Autos_list' se deberia registrar una venta.
+#### Video explicativo del proyecto: https://drive.google.com/file/d/1Rj-34CgRWNtK0916hWwdsoYtWVmMLnsN/view?usp=drive_link
