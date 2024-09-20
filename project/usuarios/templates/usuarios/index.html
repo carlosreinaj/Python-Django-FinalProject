@@ -1,13 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Usuarios
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}
-    <div>
-        <button><a href="{% url 'usuarios:usuario_list' %}">Lista de usuarios</a></button>
-        <button><a href="{% url 'usuarios:usuario_create' %}">Crear Usuario</a></button>
-    </div>
+<div class="container mt-4 d-flex justify-content-center gap-2">
+    <!-- Botón para Lista de usuarios -->
+    <a href="{% url 'usuarios:usuario_list' %}" class="btn btn-primary">Lista de usuarios</a>
+
+    <!-- Botón para Crear Usuario -->
+    <a href="{% url 'usuarios:usuario_create' %}" class="btn btn-success">Crear Usuario</a>
+</div>
 {% endblock main %}
 

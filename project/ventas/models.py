@@ -7,7 +7,7 @@ from decimal import Decimal
 
 class Venta(models.Model):
     usuario = models.ForeignKey("usuarios.Usuario", on_delete=models.DO_NOTHING, related_name='ventas')
-    producto = models.ForeignKey("autos.Auto", on_delete=models.DO_NOTHING)
+    producto = models.ForeignKey("autos.Auto", on_delete=models.CASCADE)
     cantidad = models.DecimalField(max_digits=10, decimal_places=2)
     precio_total = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
     fecha_venta = models.DateTimeField(default=timezone.now, editable=False)

@@ -1,31 +1,50 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Lista de Usuarios
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}    
-    <form action="{% url 'usuarios:usuario_list' %}" method="get">
-        <input type="text" name="q" placeholder="Buscar...">
-        <button type="submit">Buscar</button>
+<div class="container mt-4">
+    <!-- Formulario de búsqueda -->
+    <form action="{% url 'usuarios:usuario_list' %}" method="get" class="d-flex mb-4">
+        <input type="text" name="q" class="form-control me-2" placeholder="Buscar...">
+        <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
-    <table>
+
+    <!-- Tabla de usuarios -->
+    <table class="table table-striped table-hover">
         <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Detalles</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
         </thead>
         <tbody>
             {% for object in object_list %}
                 <tr>
                     <td>{{ object }}</td>
-                    <td><a href="{% url 'usuarios:usuario_detail' object.id %}">Detalles</a></td>
-                    <td><a href="{% url 'usuarios:usuario_update' object.id %}">Actualizar</a></td>
-                    <td><a href="{% url 'usuarios:usuario_delete' object.id %}">Eliminar</a></td>
+                    <td><a href="{% url 'usuarios:usuario_detail' object.id %}" class="btn btn-info">Detalles</a></td>
+                    <td><a href="{% url 'usuarios:usuario_update' object.id %}" class="btn btn-warning">Actualizar</a></td>
+                    <td><a href="{% url 'usuarios:usuario_delete' object.id %}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="4">No hay usuarios registrados</td>
+                    <td colspan="4" class="text-center">No hay usuarios registrados</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    <button><a href="{% url 'usuarios:index' %}">Volver</a></button>
+    <!-- Botón de volver -->
+    <a href="{% url 'usuarios:index' %}" class="btn btn-secondary">Volver</a>
+</div>
 {% endblock main %}

@@ -9,6 +9,7 @@ app_name = "autos"
 
 
 
+
 urlpatterns = [
     path("", views.index, name="index"),
     #path("autos/list", views.autos_list, name="autos_list"),

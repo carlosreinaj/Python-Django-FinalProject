@@ -8,7 +8,7 @@
             <div class="text-center">
                 <h1 class="mx-auto my-0 text-uppercase">Max-Autos</h1>
                 <h2 class="text-white-50 mx-auto mt-2 mb-5">Autos</h2>
-                <a class="btn btn-primary" href="#about">Comprar</a>
+                <a class="btn btn-primary" href="{% url 'autos:autos_list' %}">Comprar</a>
             </div>
         </div>
     </div>
@@ -16,6 +16,39 @@
 {% endblock header %}
 
 {% block main %}
-        <button><a href="{% url 'autos:autos_list' %}">Lista de Autos</a></button>
-        <button><a href="{% url 'autos:autos_create' %}">Agregar Nuevos Autos</a></button>
+<div class="container">
+    <!-- Lista de Autos -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-lg-6 d-flex align-items-center order-lg-first">
+            <div class="bg-black text-center w-100 p-4 rounded">
+                <h4 class="text-white">Los mejores Autos a los mejores precios</h4>
+                <div class="d-grid gap-2">
+                    <a href="{% url 'autos:autos_list' %}" class="btn btn-primary">Ver Autos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'core/img/mustangamarillo.webp' %}" alt="..." />
+        </div>
+    </div>
+    <!-- Imagen y Agregar Nuevos Autos -->
+    <div class="row mb-5 justify-content-center">
+        <div class="col-lg-6">
+            <img class="img-fluid" src="{% static 'core/img/BMWserie3.webp' %}" alt="..." />
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+            <div class="bg-black text-center w-100 p-4 rounded">
+                <h4 class="text-white">Sugiere nuevos autos y los traeremos para ti!</h4>
+                <div class="d-grid gap-2">
+                    <a href="{% url 'autos:autos_create' %}" class="btn btn-primary">Sugerir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
 {% endblock main %}
+
+<!-- <button><a href="{% url 'autos:autos_list' %}">Lista de Autos</a></button>
+<button><a href="{% url 'autos:autos_create' %}">Agregar Nuevos Autos</a></button> -->

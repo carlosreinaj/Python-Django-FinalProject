@@ -22,7 +22,15 @@ class Auto(models.Model):
     COLOR_CHOICES = [
         ('Rojo', 'Rojo'),
         ('Azul', 'Azul'),
-        ('Negro', 'Negro'),
+        ('Rojo Perla', 'Rojo Perla'),
+        ('Azul Marino', 'Azul Marino'),
+        ('Amarillo', 'Amarillo'),
+        ('Blanco Perla', 'Blanco Perla'),
+        ('Verde Militar', 'Verde Militar'),
+        ('Gris Plata', 'Gris Plata'),
+        ('Rojo Carmin', 'Rojo Carmin'),
+        ('Azul Noche', 'Azul Noche'),
+        ('Plata Metalizado', 'Plata Metalizado'),
         
     ]
     color = models.CharField(max_length=20, choices=COLOR_CHOICES)
@@ -30,6 +38,8 @@ class Auto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.FloatField()
     fecha_actualizacion = models.DateField(editable=False, auto_now=True)
+    imagen = models.CharField(max_length=100, null=True, blank=True)  # Campo para almacenar el nombre de la imagen
+
 
     def __str__(self):
         return f"{self.modelo} {self.color} ({self.ano}) | {self.estado}"

@@ -1,29 +1,76 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block header %}
-    Lista de Autos
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+        </div>
+    </div>
+</header>
 {% endblock header %}
-
-{% block main %}    
-    <form action="{% url 'autos:autos_list' %}" method="get">
-        <input type="text" name="q" placeholder="Buscar...">
-        <button type="submit">Buscar</button>
+{% block main %}  
+<section class="py-5">
+    <!-- Formulario de búsqueda -->
+    <form action="{% url 'autos:autos_list' %}" method="get" class="d-flex mb-4 container">
+        <input type="text" name="q" class="form-control me-2" placeholder="Buscar...">
+        <button class="btn btn-primary" type="submit">Buscar</button>
     </form>
-    <table>
-        <tbody>
+
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {% for object in object_list %}
-                <tr>
-                    <td>{{ object }}</td>
-                    <td><a href="{% url 'autos:autos_detail' object.id %}">Detalles</a></td>
-                    <td><a href="{% url 'autos:autos_update' object.id %}">Actualizar</a></td>
-                    <td><a href="{% url 'autos:autos_confirm_delete' object.id %}">Eliminar</a></td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="4">No hay registros</td>
-                </tr>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Imagen del producto -->
+                        <img class="card-img-top" src="{% static 'core/img/' %}{{ object.imagen }}" alt="{{ object.modelo }}" />
+                        <!-- Detalles del producto -->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Nombre del producto -->
+                                <h5 class="fw-bolder">{{ object.modelo }}</h5>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <a href="{% url 'autos:autos_detail' object.id %}">Detalles</a>
+                                    </div>
+                                </div>
+                                <!-- Precio del producto -->
+                                ${{ object.precio }}
+                            </div>
+                        </div>
+                        <!-- Acciones del producto -->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a class="btn btn-outline-dark mt-auto" href="#">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </tbody>
-    </table>
-    <button><a href="{% url 'autos:index' %}">Volver</a></button>
+        </div>
+    </div>
+
+    <!-- Botón de volver -->
+    <a class="btn btn-secondary" mt-4" href="{% url 'autos:index' %}">Volver</a>
+</section>
+
+
 {% endblock main %}
+<table>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object }}</td>
+                <td><a href="{% url 'autos:autos_detail' object.id %}">Detalles</a></td>
+                <td><a href="{% url 'autos:autos_update' object.id %}">Actualizar</a></td>
+                <td><a href="{% url 'autos:autos_confirm_delete' object.id %}">Eliminar</a></td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">No hay registros</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

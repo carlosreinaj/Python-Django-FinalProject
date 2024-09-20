@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#page-top">Max-Autos</a>
+        <a class="navbar-brand" href="{% url 'core:index' %}">Max-Autos</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -14,22 +14,29 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'core:profile' %}">{{ user.username }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'usuarios:index' %}">Usuarios</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'autos:index' %}">Autos</a></li>
-                {% if user.usuario.avatar %}
-                    <img src="{{ user.usuario.avatar.url }}" alt="avatar" style="height: 30px;" >
+                    {% if user.usuario.avatar %}
+                    <li class="nav-item d-flex align-items-center">
+                        <img src="{{ user.usuario.avatar.url }}" alt="avatar" style="width: 30px; height: 30px;">
+                    </li>
+                    {% else %}
+                    <li class="nav-item d-flex align-items-center">
+                        <img src="{% static 'core/img/usuario.png' %}" alt="avatar" style="width: 30px; height: 30px;">
+                    </li>
+                    {% endif %}                
+                    <li class="nav-item">
+                        <form action="{% url 'core:logout' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <a type="submit" class="nav-link">Logout</a>
+                        </form>
+                    </li>
                 {% else %}
-                    <img src="{% static 'core/img/usuario.png' %}" alt="avatar" style="height: 30px;" >
-                {% endif %}
-                <form action="{% url 'core:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
-                {% else %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+
 
 
 

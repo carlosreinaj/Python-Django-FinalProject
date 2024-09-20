@@ -1,14 +1,34 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block header %}
-    Detalle de Autos
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}    
-    <ul>
-        <li>Marca: {{ object.modelo}}</li>
-        <li>Año: {{object.ano}}</li>
-        <li>Color: {{object.color}}</li>
+<div class="container mt-4 d-flex flex-column align-items">
+    <!-- Imagen del objeto -->
+    <div class="w-50 d-flex justify-content-center mb-4">
+        <div class="img-container">
+            <img class="img-fluid rounded" src="{% static 'core/img/' %}{{ object.imagen }}" alt="{{ object.modelo }}">
+        </div>
+    </div>
+
+    <!-- Lista de detalles del auto -->
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>Marca:</strong> {{ object.modelo }}</li>
+        <li class="list-group-item"><strong>Año:</strong> {{ object.ano }}</li>
+        <li class="list-group-item"><strong>Color:</strong> {{ object.color }}</li>
     </ul>
-        <button><a href="{% url 'autos:autos_list' %}">Volver</a></button>  
+
+    <!-- Botón de volver -->
+    <a href="{% url 'autos:autos_list' %}" class="btn btn-primary">Volver</a>
+</div>
 {% endblock main %}

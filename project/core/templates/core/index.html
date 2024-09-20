@@ -1,10 +1,6 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block header %}
-    
-{% endblock header %}
-
 {% block main %}
     <!-- Masthead-->
     <header class="masthead">
@@ -13,48 +9,73 @@
                 <div class="text-center">
                     <h1 class="mx-auto my-0 text-uppercase">Max-Autos</h1>
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">Los mejores autos de todo el país.</h2>
-                    <a class="btn btn-primary" href="#about">Comprar</a>
+                    <a class="btn btn-primary" href="{% url 'autos:autos_list' %}">Comprar</a>
                 </div>
             </div>
         </div>
     </header>
     <!-- About-->
-    <section class="about-section text-center" id="about">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8">
-                    <h2 class="text-white mb-4">Chevrolet | Nissan | Ford | BMW | Renault | Toyota | Audi | </h2>
-                    <p class="text-white-50">
-                        Aqui encontraras gran variedad de marcas y modelos.
-                        no te pierdas de esta oportunidad.
-                    </p>
+<section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondochevrolet.webp' %}" alt="Chevrolet" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Chevrolet</span>
+                    </div>
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondoford.webp' %}" alt="ford" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Ford</span>
+                    </div>
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondohonda.webp' %}" alt="honda" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Honda</span>
+                    </div>
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondojeep.webp' %}" alt="Jepp" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Jeep</span>
+                    </div>
+                    <!-- <div class="brand-logo">
+                        <img src="{% static 'core/img/fondotesla.webp' %}" alt="Tesla" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Tesla</span>
+                    </div> -->
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondotoy.webp' %}" alt="Toyota" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Toyota</span>
+                    </div>
+                    <div class="brand-logo">
+                        <img src="{% static 'core/img/fondowolsk.webp' %}" alt="Wolkswagen" class="img-fluid" style="height: 50px;">
+                        <span class="text-white d-block mt-2">Wolkswagen</span>
+                    </div>
                 </div>
             </div>
-            <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
         </div>
-    </section>
+        <img class="img-fluid mt-4" src="{% static 'core/img/teslafond.png' %}" alt="..." />
+    </div>
+</section>
     <!-- Projects-->
     <section class="projects-section bg-light" id="projects">
         <div class="container px-4 px-lg-5">
             <!-- Featured Project Row-->
             <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'core/img/pexels-introspectivedsgn-4062473.jpg' %}" alt="concesionario" /></div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
-                        <h4>Shoreline</h4>
-                        <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                        <h4>Max-Autos</h4>
+                        <p class="text-black-50 mb-0">Somos un consesionario de autos con una alta variedad de marcas y modelos. Una trayectoria con muchos años y los mejores planes de financiacion para ti. Precios increibles y Autos de los ultimos años directamente traidos desde USA y Europa. Nos sentimos felices de verte aqui siendo parte de este gran proyecto!</p>
                     </div>
                 </div>
             </div>
             <!-- Project One Row-->
             <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                <div class="col-lg-6"><img class="img-fluid" src="{% static 'core/img/demo-image-02.jpg' %}" alt="..." /></div>
+                <div class="col-lg-6"><img class="img-fluid" src="{% static 'core/img/muchachafeliz.webp' %}" alt="compradeauto" /></div>
                 <div class="col-lg-6">
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-white">Misty</h4>
-                                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                <h4 class="text-white">Nuestros clientes son muy felices</h4>
+                                <p class="mb-0 text-white-50">Nuestras marcas y modelos siempre se adaptan a la necesidad de lo que nuestros clientes estan buscando</p>
                             </div>
                         </div>
                     </div>
@@ -62,13 +83,13 @@
             </div>
             <!-- Project Two Row-->
             <div class="row gx-0 justify-content-center">
-                <div class="col-lg-6"><img class="img-fluid" src="{% static 'core/img/demo-image-01.jpg' %}" alt="..." /></div>
+                <div class="col-lg-6"><img class="img-fluid" src="{% static 'core/img/hablandoconclientes.webp' %}" alt="asesoriadeauto" /></div>
                 <div class="col-lg-6 order-lg-first">
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <h4 class="text-white">Mountains</h4>
-                                <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
+                                <h4 class="text-white">Tenemos la mejor asesoria</h4>
+                                <p class="mb-0 text-white-50">A veces tendemos a estar idecisos, por eso tenemos a los mejores expertos para acompañarte con todas las preguntas durante tu proceso de seleccion y compra</p>
                             </div>
                         </div>
                     </div>

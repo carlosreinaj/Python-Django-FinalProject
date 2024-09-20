@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Max-Autos</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/img/fondowolsk.webp' %}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -18,10 +18,8 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <h1>
-            {% block header %}            
-            {% endblock header %}
-        </h1>
+        {% block header %}            
+        {% endblock header %}
 
         {% include 'core/componets/navbar.html' %}
         {% block main %}   
