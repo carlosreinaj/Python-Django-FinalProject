@@ -2,16 +2,37 @@
 
 {% block header %}
     {% if form.instance.pk %}
-        Actualizando Autos
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+            </div>
+        </div>
+    </header>
     {% else %}
-        Creando un Nuevo Auto
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+            </div>
+        </div>
+    </header>
     {% endif %}
 {% endblock header %}
 
 {% block main %}    
+<div class="container mt-5">
+    <!-- Formulario con Bootstrap -->
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
+        {% csrf_token %}       
+        <!-- Aplicar clases Bootstrap a los campos del formulario -->
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+        <!-- Botón de enviar estilizado -->
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+</div>
 {% endblock main %}

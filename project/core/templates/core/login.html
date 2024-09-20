@@ -1,16 +1,30 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-Bienvenidos a Max Autos
+<header class="masthead" style="height: 20vh;"> <!-- Cambia el 30vh al tamaño que prefieras -->
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Max-Autos</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Los mejores autos de todo el país.</h2>
+            </div>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}    
-    <form method="post">
-        {% csrf_token %}
-        <table>
-            {{ form.as_p }}
-        </table>
-        <button type="submit">Iniciar Sesion</button>
-    </form>
-    <p>¿No tienes una cuenta? <button><a href="{% url 'core:register' %}">Registrate aquí</a></button></p>
+    <div class="container mt-5">
+        <form method="post" class="border p-4 rounded shadow-sm">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+        </form>
+        <p class="mt-3 text-center">
+            ¿No tienes una cuenta?
+            <a href="{% url 'core:register' %}" class="btn btn-link">Regístrate aquí</a>
+        </p>
+    </div>
 {% endblock main %}

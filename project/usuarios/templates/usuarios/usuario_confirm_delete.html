@@ -1,14 +1,26 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Eliminar un usuario
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+        </div>
+    </div>
+</header>
 {% endblock header %}
 
 {% block main %}    
-<p>¿Esta seguro que desea eliminar al usuario "{{ object.nombre}} {{ object.apellido }}"?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirmar</button>
-</form>
-    <button><a href="{% url 'usuarios:index' %}">Volver</a></button>
+<div class="container mt-5">
+    <!-- Mensaje de confirmación -->
+    <p class="lead text-center">¿Está seguro que desea eliminar al usuario <strong>"{{ object.nombre }} {{ object.apellido }}"</strong>?</p>
+
+    <!-- Formulario de confirmación -->
+    <form method="post" class="text-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger me-2">Confirmar</button>
+        <a href="{% url 'usuarios:index' %}" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
 {% endblock main %}

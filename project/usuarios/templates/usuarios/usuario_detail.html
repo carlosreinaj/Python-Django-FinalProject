@@ -1,13 +1,26 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Detalle de Usuarios
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Encuentra una gran variedad de Autos</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Con los mejores precios del mercado!</p>
+            </div>
+        </div>
+    </header>
 {% endblock header %}
 
 {% block main %}    
-    <ul>
-        <li>Nombre: {{ object.nombre}}</li>
-        <li>Apellido: {{object.apellido}}</li>
-    </ul>
-        <button><a href="{% url 'usuarios:usuario_list' %}">Volver</a></button>  
+    <div class="container mt-5">
+        <!-- Lista de detalles del usuario -->
+        <ul class="list-group mb-4">
+            <li class="list-group-item">Nombre: {{ object.nombre }}</li>
+            <li class="list-group-item">Apellido: {{ object.apellido }}</li>
+        </ul>
+
+        <!-- Botón de volver estilizado -->
+        <a href="{% url 'usuarios:usuario_list' %}" class="btn btn-secondary">Volver</a>
+    </div>
+
 {% endblock main %}

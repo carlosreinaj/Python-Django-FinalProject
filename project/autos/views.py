@@ -31,7 +31,7 @@ class AutoList(ListView):
         queryset = super().get_queryset()
         q = self.request.GET.get('q')
         if q:
-            queryset = Auto.objects.filter(nombre__icontains=q)
+            queryset = Auto.objects.filter(modelo__icontains=q)
         return queryset
 
 #------------------------------------CREATE------------------------------------
